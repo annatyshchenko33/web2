@@ -1,0 +1,163 @@
+
+.start-screen {
+    width: 600px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.5);  
+    position: relative; 
+  }
+  
+
+  .start-button {
+    padding: 20px 40px;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+  }
+  .start-button:hover{
+    background-color: rgba(180, 70, 116, 0.5);
+  }
+
+
+  
+  .game {
+    display: none; 
+  }
+
+
+.game{
+    width: 600px;
+    height: 240px;
+    background-image: url(img/888.jpg);
+    background-repeat: repeat-x;
+    border-radius: 10px;
+    margin: auto;
+    background-size: 600px 240px;
+   
+}
+
+#cat{
+    width: 60px;
+    height: 60px;
+    background-image: url(img/cat.png);
+    background-size: 60px 60px;
+    position: relative;
+    top: 150px;
+}
+#paw{
+    width: 50px;
+    height:40px;
+    background-image: url(img/paw.png);
+    background-size: 50px 40px;
+    position: relative;
+    top: 110px;
+    left: 580px;
+    animation: pawMov 1s infinite linear;
+}
+
+
+
+
+
+@keyframes sparkleMove {
+    0% {
+        left: 580px; 
+        opacity: 0;
+        
+    }
+    90% {
+        left: 50px; 
+        opacity: 1;
+    }
+    100% {
+        left: -20px;
+        opacity: 0; 
+    }
+}
+
+
+.sparkle {
+    width: 40px;
+    height:40px;
+    background-image: url(img/magic.png);
+    background-size: 40px 40px;
+    position: relative;
+    top: 20px;
+    left: 580px;
+    opacity: 0;
+    animation: sparkleMove 1s linear forwards;
+   
+}
+
+
+#score{
+    text-align: center;
+  font-size: 20px;
+  font-family: cursive;
+}
+@keyframes pawMov{
+    0%{
+        left: 580px;
+        
+    }
+    100%{
+        left: -20px;
+       
+    }
+}
+
+
+.jump{
+    animation: jump 0.3s linear;
+}
+
+@keyframes jump{
+    0%{
+        top: 150px;
+
+    }
+    30%{
+        top: 130px;
+    }
+    50%{
+        top: 80px;
+    }
+    80%{
+        top: 130px;
+    }
+    100%{
+        left: 150px;
+    }
+}
+
+.container {
+    width: 400px;
+    margin: auto;
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    display: flex;
+    border-radius: 10px; 
+    border: none;
+    font-family: cursive;
+}
+
+#bestResults, #worstResults {
+    margin: 20px;
+  flex: 1; 
+}
+#worstResults{
+    margin-right: 10px;
+}
+
