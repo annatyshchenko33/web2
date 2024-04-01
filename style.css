@@ -526,6 +526,72 @@ flex: 1 1 25 rem;
   }
 
 
+  .work .test form {
+    display: block;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+  }
+
+
+  .work .test form label {
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.1rem;
+   
+  }
+
+  .work .test form label[for="educationBachelor"],
+.work .test form label[for="educationMaster"],
+.work .test form label[for="educationPhD"] {
+  display: flex;
+  font-weight: normal; 
+}
+
+.work .test form label[for="experienceHTML"],
+.work .test form label[for="experienceCSS"],
+.work .test form label[for="experienceJavaScript"] {
+  display: flex;
+  font-weight: normal; 
+}
+
+
+
+.work .test form input[type="text"],
+.work .test form input[type="number"],
+.work .test form input[type="tel"],
+.work .test form textarea,
+.work .test form select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+}
+
+.work .test form input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5rem;
+   
+  }
+  
+  .work .test form .btn {
+    padding: 0.75rem 1.5rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .work .test form .btn:hover {
+    background-color: var(--purple);
+  }
+
+
   @media (max-width:991px){
     html{
         font-size: 55%;

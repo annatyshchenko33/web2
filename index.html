@@ -21,6 +21,7 @@
     <a href="#review">відгуки</a>
     <a href="#contacts">контакти</a>
     <a href="#location">Місцезнаходження</a>
+    <a href="#work">Робота</a>
 </nav>
 <div class="icons">
   <a href="#"><i class="fas fa-heart"></i></a>
@@ -401,7 +402,65 @@
 </section>
 <!-- location section ends -->
 
+<!-- work section starts -->
+<section class="work" id="work">
+  <h1 class="heading">Зацікавлені у <span>Роботі</span> з нами <span>?</span></h1>
+  <div class="test">
+   
+        <form id="form">
+  <label for="fullName">Прізвище та ім'я:</label><br>
+  <input type="text" id="fullName" name="fullName" required><br><br>
+  <label for="city">Місто:</label><br>
+  <input type="text" id="city" name="city" required><br><br>
+  <label for="position">Посада, на яку претендуєте:</label><br>
+  <select id="position" name="position" required>
+  <option value="developer">Розробник програмного забезпечення</option>
+  <option value="designer">Дизайнер</option>
+  <option value="manager">Менеджер проектів</option>
+  </select><br><br>
 
+  <label>Ваш рівень освіти:</label><br>
+  <input type="radio" id="educationBachelor" name="education" value="bachelor">
+  <label for="educationBachelor">Бакалавр</label><br>
+  <input type="radio" id="educationMaster" name="education" value="master" >
+  <label for="educationMaster">Магістр</label><br>
+  <input type="radio" id="educationPhD" name="education" value="phd">
+  <label for="educationPhD">Доктор наук</label><br><br>
+
+  <label for="experience">Кількість років досвіду роботи:</label><br>
+  <input type="number" id="experience" name="experience" min="0" required><br><br>
+
+  <label for="skills">Вкажіть ваші професійні навички та навички комунікації:</label><br>
+<textarea id="skills" name="skills" rows="4" cols="50" required></textarea><br><br>
+
+
+
+  <label for="lastJob">Останнє місце роботи:</label><br>
+  <input type="text" id="lastJob" name="lastJob" required><br><br>
+
+  <label for="phoneNumber">Контактний номер телефону:</label><br>
+  <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="XXX-XX-XXX" required><br><br>
+
+<label>Чи маєте ви досвід роботи зі згаданими технологіями:</label><br>
+<input type="checkbox" id="experienceHTML" name="experienceHTML" value="HTML">
+<label for="experienceHTML">HTML/CSS & React</label><br>
+<input type="checkbox" id="experienceCSS" name="experienceCSS" value="CSS">
+<label for="experienceCSS">Python/PHP</label><br>
+<input type="checkbox" id="experienceJavaScript" name="experienceJavaScript" value="JavaScript">
+<label for="experienceJavaScript">JavaScript/Typescript</label><br><br>
+
+
+<label for="expectations">Які ваші очікування від цієї роботи?</label><br>
+
+<textarea id="expectations" name="expectations" rows="4" cols="50" required></textarea><br><br>
+
+<input type="submit" value="Відправити" class="btn">
+
+</form>
+
+</section>
+
+<!-- work section ends -->
 
 
 
@@ -460,3 +519,48 @@
 </html>
 
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('form');
+  
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); 
+  
+      const formData = {
+        fullName: form.fullName.value,
+        city: form.city.value,
+        position: form.position.value,
+        education: document.querySelector('input[name="education"]:checked').value,
+        experience: form.experience.value,
+        skills: form.skills.value,
+        lastJob: form.lastJob.value,
+        phoneNumber: form.phoneNumber.value,
+        experienceHTML: form.experienceHTML.checked,
+        experienceCSS: form.experienceCSS.checked,
+        experienceJavaScript: form.experienceJavaScript.checked,
+        expectations: form.expectations.value
+       
+      };
+  
+      localStorage.setItem('formData', JSON.stringify(formData));
+  
+      form.reset();
+  
+      alert('Форма успішно відправлена!');
+
+      if (formData.experience >= 2) {
+        if (formData.experienceJavaScript && formData.experienceCSS && formData.experienceHTML) {
+          if (formData.education !== "") {
+            const queryParams = new URLSearchParams(formData);
+          const url = "test.html?" + queryParams.toString();
+
+         
+          window.location.href = url;
+        }
+ 
+}
+      }
+    });
+  });
+  </script>
+</script>
